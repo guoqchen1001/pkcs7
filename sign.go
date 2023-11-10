@@ -11,7 +11,6 @@ import (
 	"errors"
 	"fmt"
 	"math/big"
-	"time"
 )
 
 // SignedData is an opaque data structure for creating signed data payloads
@@ -158,7 +157,7 @@ func (sd *SignedData) AddSignerChain(ee *x509.Certificate, pkey crypto.PrivateKe
 	attrs := &attributes{}
 	attrs.Add(OIDAttributeContentType, sd.sd.ContentInfo.ContentType)
 	attrs.Add(OIDAttributeMessageDigest, sd.messageDigest)
-	attrs.Add(OIDAttributeSigningTime, time.Now().UTC())
+	//attrs.Add(OIDAttributeSigningTime, time.Now().UTC())
 	for _, attr := range config.ExtraSignedAttributes {
 		attrs.Add(attr.Type, attr.Value)
 	}
