@@ -155,8 +155,8 @@ func (sd *SignedData) AddSignerChain(ee *x509.Certificate, pkey crypto.PrivateKe
 		return err
 	}
 	attrs := &attributes{}
-	attrs.Add(OIDAttributeContentType, sd.sd.ContentInfo.ContentType)
-	attrs.Add(OIDAttributeMessageDigest, sd.messageDigest)
+	//attrs.Add(OIDAttributeContentType, sd.sd.ContentInfo.ContentType)
+	//attrs.Add(OIDAttributeMessageDigest, sd.messageDigest)
 	//attrs.Add(OIDAttributeSigningTime, time.Now().UTC())
 	for _, attr := range config.ExtraSignedAttributes {
 		attrs.Add(attr.Type, attr.Value)
